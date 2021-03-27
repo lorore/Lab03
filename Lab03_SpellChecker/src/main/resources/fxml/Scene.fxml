@@ -1,16 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.FXMLController">
    <top>
-      <Label text="Lab03_SpellChecker" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets top="20.0" />
-         </BorderPane.margin>
-      </Label>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="TOP_LEFT" text="Lab3_SpellChecker" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets left="130.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <HBox>
+               <children>
+                  <Label text="Change the language:">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="tendina" promptText="Select">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
    </top>
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="txtUtente" prefHeight="200.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TextArea>
+            <Button fx:id="btnControllo" mnemonicParsing="false" onAction="#handleControllo" text="Spell Check">
+               <VBox.margin>
+                  <Insets left="280.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Wrong words">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextArea fx:id="txtSbagliate" editable="false" prefHeight="200.0" prefWidth="200.0" />
+            <HBox>
+               <children>
+                  <Label fx:id="labelErrori">
+                     <HBox.margin>
+                        <Insets left="20.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="btnClear" mnemonicParsing="false" onAction="#handleClear" text="Clear Text" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="100.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <Label fx:id="labelTempo" />
+         </children>
+      </VBox>
+   </bottom>
 </BorderPane>
